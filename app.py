@@ -1,11 +1,14 @@
 import config
 from flask import Flask
 from flask_restful import Api
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__,
             template_folder='views')
 
 app.config.from_object(config.ProductionConfig)
+db = SQLAlchemy(app)
+
 
 api_router = Api(app, prefix='/v1')  # API Initialization
 

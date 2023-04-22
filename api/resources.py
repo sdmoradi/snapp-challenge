@@ -4,6 +4,7 @@ from werkzeug.security import check_password_hash
 import config
 from flask import request, jsonify
 import requests
+from models.weathers import Weathers
 
 auth = HTTPBasicAuth()
 users = config.users
@@ -30,10 +31,12 @@ class Weather(Resource):
             temp_c = data["current"]["temp_c"]
             humidity = data["current"]["humidity"]
             date = data["location"]["localtime"]
-            # city = "Tehran"
             # temp_c = 21
             # humidity = 18
             # date = "2023-04-21 0:04"
+            weather = Weathers(city, temp_c, humidity, date)
+            Weathers.create(weather)
+            Weathers.save(weather)
             return jsonify({"Hum": humidity, "city": city, "Temp": temp_c, "date": date})
         else:
             return jsonify({"Msg": "Please insert city key in request"})
