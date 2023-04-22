@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<title>Snapp NetDevOps Challnege</title>
+		<link rel="icon" href="{{ url_for('static', filename='img/favicon.ico') }}"/>
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+	</head>
+	<body>
+		<div id="portal"></div>
+		<div id="root">
+			<div class="describe">
+				<h1>Hello !</h1>
+				<h3>This is Snapp NetDevOps Challenge application.</h3>
+				<p>For test this application use bellow command or open this address with browser : </p>
+				<br>
+				<p class="terminal">#curl -u Your-username:Your-password http://Host/v1/weather?city=Your-city-name</p>
+			</div>
+			<div class="intro">
+				<img src="{{ url_for('static', filename='img/snapp-white.svg') }}">
+				<span class="version">v1.0.0</span>
+			</div>
+		</div>
+	</body>
+</html>

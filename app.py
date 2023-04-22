@@ -4,7 +4,7 @@ from flask_restful import Api
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__,
-            template_folder='views')
+            template_folder='views', static_folder='public')
 
 app.config.from_object(config.ProductionConfig)
 db = SQLAlchemy(app)
