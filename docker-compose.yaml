@@ -1,0 +1,27 @@
+version: "3.7"
+
+services:
+  nginx_app:
+    image: nginx:latest
+    depends_on:
+      - netdevops
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - 80:80
+    networks:
+      - netdevops-net
+
+  netdevops:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    expose:
+      - 5000
+    networks:
+      - netdevops-net
+
+
+networks:
+  netdevops-net:
+    external: true
