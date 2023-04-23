@@ -3,6 +3,8 @@ name: monitoring
 
 volumes:
     prometheus: {}
+    loki: {}
+    grafana: {}
 
 services:
   loki:
@@ -13,7 +15,7 @@ services:
       - netdevops-net
     volumes:
       # directory must be created first, with uid:gid 10001:10001
-      - ./volumes/loki:/loki
+      - loki:/loki
 
   promtail:
     image: registry.docker.ir/grafana/promtail:2.6.1
@@ -36,8 +38,9 @@ services:
       - "3000:3000"
     volumes:
       # directory must be created first, with uid:gid 472:472
-      - ./volumes/grafana:/var/lib/grafana
+      - grafana:/var/lib/grafana
       # automatically configure the loki datasource
+      - ./grafana/dashboards:/etc/grafana/provisioning/dashboards
       - ./loki/grafana/provisioning/:/etc/grafana/provisioning/
     networks:
       - netdevops-net
