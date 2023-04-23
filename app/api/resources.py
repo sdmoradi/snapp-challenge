@@ -37,7 +37,7 @@ class Weather(Resource):
             weather = Weathers(city, temp_c, humidity, date)
             Weathers.create(weather)
             Weathers.save(weather)
-            return jsonify({"Hum": humidity, "city": city, "Temp": temp_c, "date": date})
+            return jsonify({"Hum": humidity, "city": city, "Temp": temp_c})
         else:
             return jsonify({"Msg": "Please insert city key in request"})
 
