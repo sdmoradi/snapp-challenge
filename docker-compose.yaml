@@ -1,6 +1,9 @@
 version: "3.7"
 name: netdevops
 
+volumes:
+  app-data: {}
+
 services:
   nginx_app:
     image: nginx:latest
@@ -19,6 +22,8 @@ services:
       dockerfile: Dockerfile
     expose:
       - 5000
+    volumes:
+      - app-data:/app/instance
     networks:
       - netdevops-net
 
