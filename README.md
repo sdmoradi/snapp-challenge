@@ -20,9 +20,17 @@ docker compose up -d
 
 ### Application address:
 
+#### user: admin
+#### password: password
+
 - http://localhost
+- http://localhost/v1/weather?city=tehran
+- http://localhost/v1/weather?city=london
 
 ### Grafana address:
+
+#### user: admin
+#### password: admin
 
 - http://localhost:3000
 
