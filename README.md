@@ -7,6 +7,8 @@ git clone https://github.com/sdmoradi/snapp-challenge.git
 
 cd snapp-challenge
 
+docker compose build
+
 docker compose up -d
 ````
 
