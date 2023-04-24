@@ -15,6 +15,15 @@
 				<br>
 				<p class="terminal">#curl -u Your-username:Your-password http://Host/v1/weather?city=Your-city-name</p>
 			</div>
+			<div id="menu" style="position: fixed;top: 0;width: 100%;">
+				<ul>
+					<li><a href="http://localhost">Home</a></li>
+					<li><a href="http://localhost:3000">Grafana</a></li>
+					<li><a href="http://localhost:9090">Prometheus</a></li>
+					<li><a href="http://localhost/v1/weather?city=tehran">Tehran Weather</a></li>
+					<li><a href="http://localhost/v1/weather?city=shiraz">Shiraz Weather</a></li>
+				</ul>
+			</div>
 			<div class="intro">
 				<img src="{{ url_for('static', filename='img/snapp-white.svg') }}">
 				<span class="version">v1.0.0</span>
