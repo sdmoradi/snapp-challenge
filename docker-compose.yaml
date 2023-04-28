@@ -15,6 +15,7 @@ services:
       - 80:80
     networks:
       - netdevops-net
+    restart: always
 
   netdevops:
     build:
@@ -26,6 +27,7 @@ services:
       - app-data:/app/instance
     networks:
       - netdevops-net
+    restart: always
 
 
 networks:
